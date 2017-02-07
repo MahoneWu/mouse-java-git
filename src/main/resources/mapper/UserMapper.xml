@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mouse.moon.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.mouse.moon.pojo.User">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+  </resultMap>
+  
+  
+  <insert id="insertUser" parameterType="com.mouse.moon.pojo.User" useGeneratedKeys="true" keyProperty="ids">
+    insert into t_user(id,name,age,address,gender) values(#{id},#{name},#{age},#{address},#{gender})
+  </insert>
+
+  <select id="getUserInfoById" parameterType="java.lang.String" resultMap="BaseResultMap">
+      select * from t_user where id = #{id}
+  </select>
+</mapper>

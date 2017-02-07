@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="sleepHelper" class="mousejava.study.demo.ReflectDemo.ClassData.SleepHelper"></bean>
+    <bean id="personImpl" class="mousejava.study.demo.ReflectDemo.ClassData.PersonImpl"></bean>
+
+    <!--定义切点  匹配所有的sleep方法-->
+    <bean id="sleepPointCut" class="org.springframework.aop.support.JdkRegexpMethodPointcut">
+        <property name="pattern" value=".*sleep"/>
+    </bean>
+
+    <!--切面 增强+切点结合-->
+    <bean id="sleepHelperAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+        <property name="advice" ref="sleepHelper"/>
+        <property name="pointcut" ref="sleepPointCut"/>
+    </bean>
+
+    <!--定义代理对象-->
+    <bean id="personProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="personImpl"></property>
+        <property name="interceptorNames" value="sleepHelperAdvisor"></property>
+    </bean>
+
+
+</beans>
