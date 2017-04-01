@@ -1,16 +1,23 @@
 package com.mouse.moon.archs;
 
+import com.mouse.moon.common.SpringBeanUtils;
 import com.mouse.moon.mapper.UserMapper;
 import com.mouse.moon.pojo.User;
 import com.mouse.moon.pojo.UserPerson;
 import com.mouse.moon.service.UserPersonService;
 import com.mouse.moon.service.UserService;
+import com.mouse.moon.service.UserServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.web.servlet.HandlerMapping;
+
+import java.util.Map;
 
 /**
  * Created by wuhao on 16/7/31.
@@ -52,6 +59,20 @@ public class TestMyBatis {
         //user.setId(10);
         userMapper.insertUser(user);
         System.out.println(user.getId());
+    }
+
+    @Test
+    public void testUser(){
+        //User user = userService.getUserInfoById("1");
+        //UserService userService = SpringBeanUtils.getBean("userService");
+        UserService userService = SpringBeanUtils.getBean(UserServiceImpl.class);
+        User user = userService.getUserInfoById("1");
+        System.out.println(user);
+        Map map = BeanFactoryUtils.beansOfTypeIncludingAncestors(SpringBeanUtils.getApplicationContext(), UserService.class, true, false);
+        System.out.println(map);
+        Map controMap =SpringBeanUtils.getApplicationContext().getBeansWithAnnotation(Controller.class);
+        System.out.println(controMap);
+
     }
 
 }

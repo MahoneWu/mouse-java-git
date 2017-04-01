@@ -3,7 +3,7 @@ package com.mouse.design.state;
 import java.util.Random;
 
 /**
- * Created by wuhao1 on 2017/2/7.
+ * Created by wuhao on 2017/2/7.
  */
 public class HasQuarterState implements State {
 

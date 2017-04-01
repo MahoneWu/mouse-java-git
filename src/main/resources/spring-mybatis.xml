@@ -8,7 +8,7 @@
        http://www.springframework.org/schema/context/spring-context.xsd">
 
  <!--需要扫描的包      -->
-<context:component-scan base-package="com.mouse.moon.service"/>
+<context:component-scan base-package="com.mouse.moon"/>
 <context:property-placeholder location="classpath*:jdbc.properties" ignore-unresolvable="true"/>
 
        <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
@@ -50,7 +50,7 @@
 
 
 
-
+       <!--<bean id="springContextUtils" class="com.mouse.moon.common.SpringBeanUtils"></bean>-->
 
        <!--<bean id="userService" class="com.mouse.moon.service.UserPersonServiceImpl" init-method="init" autowire="">-->
        <!--</bean>-->

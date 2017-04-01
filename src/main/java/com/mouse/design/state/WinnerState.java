@@ -1,7 +1,7 @@
 package com.mouse.design.state;
 
 /**
- * Created by wuhao1 on 2017/2/7.
+ * Created by wuhao on 2017/2/7.
  */
 public class WinnerState implements  State {
 

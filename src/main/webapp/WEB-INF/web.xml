@@ -45,9 +45,13 @@
     </servlet-mapping>
 
     <!--监听器-->
+    <!--<listener>-->
+        <!--<description>spring监听器</description>-->
+        <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
+    <!--</listener>-->
     <listener>
-        <description>spring监听器</description>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+        <description>自己实现的监听器</description>
+        <listener-class>com.mouse.moon.common.ContextListenDemo</listener-class>
     </listener>
     <!-- 防止Spring内存溢出监听器 -->
     <listener>

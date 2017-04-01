@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 
 /**
- * Created by wuhao1 on 2016/10/18.
+ * Created by Mahone Wu on 2016/10/18.
  */
-@Service
+@Service("userService")
 public class UserServiceImpl implements UserService {
 
 

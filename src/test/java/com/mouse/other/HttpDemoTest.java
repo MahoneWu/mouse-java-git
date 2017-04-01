@@ -37,8 +37,8 @@ public class HttpDemoTest {
         System.out.println(object);
 
         try{
-                Object result = HttpUtils.sendHttpUrlForPost(url, object.toString(),"UTF-8","UTF-8");
-                System.out.println(result);
+//                Object result = HttpUtils.sendHttpUrlForPost(url, object.toString(),"UTF-8","UTF-8");
+//                System.out.println(result);
         }catch (Exception e){
             e.printStackTrace();
         }
